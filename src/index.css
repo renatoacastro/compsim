@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables — funciona para dark e light ────────── */
+:root {
+  --bg:             #0a0e1a;
+  --bg-surface:     #111827;
+  --bg-card:        #1a2235;
+  --bg-border:      #1e2d45;
+  --text-primary:   #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted:     #475569;
+  --code-bg:        #07101a;
+  --code-border:    #1e2d45;
+  --code-text:      #93c5fd;
+}
+
+.light {
+  --bg:             #f8fafc;
+  --bg-surface:     #ffffff;
+  --bg-card:        #f1f5f9;
+  --bg-border:      #e2e8f0;
+  --text-primary:   #0f172a;
+  --text-secondary: #475569;
+  --text-muted:     #94a3b8;
+  --code-bg:        #1e293b;
+  --code-border:    #334155;
+  --code-text:      #93c5fd;
+}
+
+/* ── Base ──────────────────────────────────────────────── */
+@layer base {
+  * { box-sizing: border-box; }
+
+  html { transition: background-color 0.2s, color 0.2s; }
+
+  body {
+    @apply font-body antialiased;
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-size: 15px;
+  }
+
+  h1, h2, h3, h4 { @apply font-display; }
+  code, pre, kbd  { @apply font-mono; }
+
+  ::-webkit-scrollbar       { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--bg-border); border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+}
+
+/* ── Componentes reutilizáveis ─────────────────────────── */
+@layer components {
+
+  .code-block {
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    color: var(--code-text);
+    @apply rounded-lg p-4 font-mono text-sm leading-relaxed overflow-x-auto whitespace-pre;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-border);
+    @apply rounded-xl p-5 shadow-lg shadow-black/10;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5
+           rounded-md text-xs font-mono font-medium border;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5
+           bg-accent-blue hover:bg-blue-500 active:bg-blue-700
+           text-white font-display font-semibold text-sm
+           rounded-lg transition-all duration-150
+           shadow-lg shadow-blue-500/20;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2
+           rounded-lg transition-all duration-150
+           text-sm font-medium;
+    color: var(--text-secondary);
+  }
+  .btn-ghost:hover {
+    color: var(--text-primary);
+    background: var(--bg-card);
+  }
+
+  .section-title {
+    @apply text-xs font-mono font-bold uppercase tracking-widest;
+    color: var(--text-muted);
+    @apply mb-3;
+  }
+
+  .diagram-canvas {
+    @apply rounded-xl overflow-hidden w-full;
+    border: 1px solid var(--bg-border);
+    background: var(--bg);
+  }
+}
+
+/* ── Animações ─────────────────────────────────────────── */
+.page-enter { animation: pageEnter 0.35s ease-out; }
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Assembly syntax highlight ─────────────────────────── */
+.asm-comment  { color: #64748b; font-style: italic; }
+.asm-label    { color: #f6ad55; font-weight: 600; }
+.asm-instr    { color: #63b3ed; font-weight: 600; }
+.asm-reg      { color: #68d391; }
+.asm-imm      { color: #fc8181; }
+.asm-flag-on  { color: #4ade80; font-weight: 700; }
+.asm-flag-off { color: #f87171; }
+
+/* Modo claro: ajusta cores de código */
+.light .asm-comment  { color: #94a3b8; }
+.light .asm-instr    { color: #2563eb; }
+.light .asm-reg      { color: #16a34a; }
+.light .asm-flag-on  { color: #15803d; }
+.light .asm-flag-off { color: #dc2626; }
+
+/* ── Tabela ISA ─────────────────────────────────────────── */
+.isa-table { width: 100%; border-collapse: collapse; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; }
+.isa-table th { background: var(--bg-border); color: var(--text-secondary); padding: 6px 10px; text-align: left; font-weight: 600; border-bottom: 1px solid var(--bg-border); }
+.isa-table td { padding: 4px 10px; border-bottom: 1px solid var(--bg-border); color: var(--text-secondary); vertical-align: top; }
+.isa-table tr:hover td { background: rgba(59,130,246,0.05); }
