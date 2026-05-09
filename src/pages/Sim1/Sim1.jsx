@@ -282,7 +282,18 @@ export default function Sim1() {
   const exLang     = EXEMPLOS[lang] || {}
 
   // FIX 1 — Reset resultado quando ISA ou código mudar
-  useEffect(() => { setResult(null); setError(null) }, [isaKey, bits, lang])
+  // Hot reload: re-simula automaticamente ao trocar ISA ou bits (se já tiver código)
+  useEffect(() => {
+    if (code.trim()) {
+      // Pequeno delay para não re-simular durante digitação rápida
+      const timer = setTimeout(() => {
+        simulateNow(code, lang, isaKey, bits)
+      }, 150)
+      return () => clearTimeout(timer)
+    } else {
+      setResult(null); setError(null)
+    }
+  }, [isaKey, bits])
 
   // FIX 2 — Bloquear bits incompatíveis com a ISA
   useEffect(() => {
@@ -304,34 +315,35 @@ export default function Sim1() {
   }
 
   // FIX 3 — Tratamento de erro robusto com linhas problemáticas
-  const simulate = useCallback(() => {
-    if (!code.trim()) return
+  function simulateNow(codeArg, langArg, isaArg, bitsArg) {
+    if (!codeArg.trim()) return
     setRunning(true); setError(null)
     try {
-      const { lines: asmLines, regMap, instrCount, errorLines = [] } = generateAssembly(code, lang, isaKey)
-      const { a, op, b } = parseFirstOp(code)
+      const { lines: asmLines, regMap, instrCount, errorLines = [] } = generateAssembly(codeArg, langArg, isaArg)
+      const { a, op, b } = parseFirstOp(codeArg)
       const safeOp = op || '+'
-      const safeB   = b ?? 0
-      const { result: rv, flags } = computeFlags(a, safeB, safeOp, bits)
-      const aBin = toBin(a, bits), bBin = toBin(b, bits), rBin = toBin(rv, bits)
-      const nShow = Math.min(bits, 8)
+      const safeB  = b ?? 0
+      const { result: rv, flags } = computeFlags(a, safeB, safeOp, bitsArg)
+      const aBin = toBin(a, bitsArg), bBin = toBin(safeB, bitsArg), rBin = toBin(rv, bitsArg)
+      const nShow = Math.min(bitsArg, 8)
       const sub   = safeOp === '-'
       const { result: gateRes, carryOut } = rippleAdder(aBin.slice(-nShow), bBin.slice(-nShow), sub)
-
       if (errorLines.length > 0) {
         setError({
-          message: `${errorLines.length} linha(s) não reconhecidas — foram mantidas como comentário. O restante foi processado normalmente.`,
+          message: `${errorLines.length} linha(s) não reconhecidas — mantidas como comentário.`,
           lines: errorLines,
         })
       }
       setResult({ asmLines, regMap, instrCount, errorLines, a, b: safeB, op: safeOp, rv, flags, aBin, bBin, rBin, nShow, sub, gateRes, carryOut, label: `${a} ${safeOp} ${safeB}` })
     } catch (err) {
-      setError({ message: `Erro ao processar: ${err.message}. Verifique a sintaxe do código.`, lines: [] })
+      setError({ message: `Erro: ${err.message}`, lines: [] })
       setResult(null)
     } finally {
       setRunning(false)
     }
-  }, [code, lang, isaKey, bits])
+  }
+
+  const simulate = useCallback(() => simulateNow(code, lang, isaKey, bits), [code, lang, isaKey, bits])
 
   function reset() {
     setCode(''); setExemplo('— selecione —'); setResult(null); setError(null)

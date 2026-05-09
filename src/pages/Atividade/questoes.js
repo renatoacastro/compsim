@@ -26,12 +26,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: O sensor registra leituras em um array de 4 posições: temp[4] = {120, 118, 122, 119}. Escreva o Assembly x86-64 que carrega temp[2] usando endereçamento indexado (LEA ou MOV com base+índice).',
     ],
     gabarito: [
-      '120 = 0111 1000; 10 = 0000 1010; MAX positivo 8-bit com sinal = 127 (0111 1111)',
-      '0111 1000 + 0000 1010 = 1000 0010 = -126 decimal. OF=1 (dois positivos geraram negativo). CF=0 (sem carry do bit 7).',
-      'MOV AL, 120 / MOV BL, 10 / ADD AL, BL. Flags: CF, OF, ZF, SF, PF, AF.',
-      'AL passa a valer -126 (interpretação com sinal). Overflow com sinal = resultado matematicamente incorreto. Em C: undefined behavior para signed char.',
-      'LEA RBX, [temp] / MOV AL, [RBX + 2*1] ; carrega temp[2] = 122. Stride = 1 byte (char).',
-    ],
+    'MTIwID0gMDExMSAxMDAwOyAxMCA9IDAwMDAgMTAxMDsgTUFYIHBvc2l0aXZvIDgtYml0IGNvbSBzaW5hbCA9IDEyNyAoMDExMSAxMTExKQ==',
+    'MDExMSAxMDAwICsgMDAwMCAxMDEwID0gMTAwMCAwMDEwID0gLTEyNiBkZWNpbWFsLiBPRj0xIChkb2lzIHBvc2l0aXZvcyBnZXJhcmFtIG5lZ2F0aXZvKS4gQ0Y9MCAoc2VtIGNhcnJ5IGRvIGJpdCA3KS4=',
+    'TU9WIEFMLCAxMjAgLyBNT1YgQkwsIDEwIC8gQUREIEFMLCBCTC4gRmxhZ3M6IENGLCBPRiwgWkYsIFNGLCBQRiwgQUYu',
+    'QUwgcGFzc2EgYSB2YWxlciAtMTI2IChpbnRlcnByZXRhw6fDo28gY29tIHNpbmFsKS4gT3ZlcmZsb3cgY29tIHNpbmFsID0gcmVzdWx0YWRvIG1hdGVtYXRpY2FtZW50ZSBpbmNvcnJldG8uIEVtIEM6IHVuZGVmaW5lZCBiZWhhdmlvciBwYXJhIHNpZ25lZCBjaGFyLg==',
+    'TEVBIFJCWCwgW3RlbXBdIC8gTU9WIEFMLCBbUkJYICsgMioxXSA7IGNhcnJlZ2EgdGVtcFsyXSA9IDEyMi4gU3RyaWRlID0gMSBieXRlIChjaGFyKS4='
+  ],
   },
 
   // ── Q02 ──────────────────────────────────────────────────────
@@ -54,12 +54,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: O estoque tem 4 produtos: qtd[4] = {50, 120, 30, 200}. Escreva Assembly ARM32 que percorre o array e carrega cada elemento em R0.',
     ],
     gabarito: [
-      '50 = 0000 0000 0011 0010; 75 = 0000 0000 0100 1011. unsigned: 0-65535, signed: -32768 a 32767.',
-      'CF=1 (borrow: 50 < 75). SF=1 (MSB=1, resultado interpretado como negativo). Resultado = 65511 (unsigned) ou -25 (signed).',
-      'MOV R0, #50 / MOV R1, #75 / SUBS R2, R0, R1. O "S" em SUBS atualiza o CPSR (N, Z, C, V).',
-      'NOT(75) = 1111 1111 1011 0100; +1 = 1111 1111 1011 0101 (-75). 50 + (-75) = 1111 1111 1110 0111 = -25.',
-      'LDR R1, =qtd / MOV R2, #0 / loop: LDR R0, [R1, R2, LSL #2] / ADD R2, R2, #1 / CMP R2, #4 / BLT loop.',
-    ],
+    'NTAgPSAwMDAwIDAwMDAgMDAxMSAwMDEwOyA3NSA9IDAwMDAgMDAwMCAwMTAwIDEwMTEuIHVuc2lnbmVkOiAwLTY1NTM1LCBzaWduZWQ6IC0zMjc2OCBhIDMyNzY3Lg==',
+    'Q0Y9MSAoYm9ycm93OiA1MCA8IDc1KS4gU0Y9MSAoTVNCPTEsIHJlc3VsdGFkbyBpbnRlcnByZXRhZG8gY29tbyBuZWdhdGl2bykuIFJlc3VsdGFkbyA9IDY1NTExICh1bnNpZ25lZCkgb3UgLTI1IChzaWduZWQpLg==',
+    'TU9WIFIwLCAjNTAgLyBNT1YgUjEsICM3NSAvIFNVQlMgUjIsIFIwLCBSMS4gTyAiUyIgZW0gU1VCUyBhdHVhbGl6YSBvIENQU1IgKE4sIFosIEMsIFYpLg==',
+    'Tk9UKDc1KSA9IDExMTEgMTExMSAxMDExIDAxMDA7ICsxID0gMTExMSAxMTExIDEwMTEgMDEwMSAoLTc1KS4gNTAgKyAoLTc1KSA9IDExMTEgMTExMSAxMTEwIDAxMTEgPSAtMjUu',
+    'TERSIFIxLCA9cXRkIC8gTU9WIFIyLCAjMCAvIGxvb3A6IExEUiBSMCwgW1IxLCBSMiwgTFNMICMyXSAvIEFERCBSMiwgUjIsICMxIC8gQ01QIFIyLCAjNCAvIEJMVCBsb29wLg=='
+  ],
   },
 
   // ── Q03 ──────────────────────────────────────────────────────
@@ -82,12 +82,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: As últimas 4 tentativas de senha estão em tentativas[4]. Escreva Assembly RISC-V que verifica se algum elemento do array é igual a 0xDEAD e salta para .achou se encontrar.',
     ],
     gabarito: [
-      '0xDEAD = 57005 decimal. Binário 16 bits: 1101 1110 1010 1101.',
-      'ZF=1 (resultado zero). RISC-V usa BEQ a0, a1, label — compara dois registradores diretamente.',
-      'LI a0, 0xDEAD / LI a1, 0xDEAD / BEQ a0, a1, .igual. Sem CMP porque RISC-V é RISC puro: branch já compara.',
-      'x86: CMP atualiza RFLAGS, JE lê ZF. RISC-V: BEQ compara e salta em 1 instrução, sem registrador de flags.',
-      'LI t2, 0xDEAD / LI t3, 0 / loop: LW t0, 0(a0) / BEQ t0, t2, .achou / ADDI a0, a0, 4 / ADDI t3, t3, 1 / LI t4, 4 / BLT t3, t4, loop.',
-    ],
+    'MHhERUFEID0gNTcwMDUgZGVjaW1hbC4gQmluw6FyaW8gMTYgYml0czogMTEwMSAxMTEwIDEwMTAgMTEwMS4=',
+    'WkY9MSAocmVzdWx0YWRvIHplcm8pLiBSSVNDLVYgdXNhIEJFUSBhMCwgYTEsIGxhYmVsIOKAlCBjb21wYXJhIGRvaXMgcmVnaXN0cmFkb3JlcyBkaXJldGFtZW50ZS4=',
+    'TEkgYTAsIDB4REVBRCAvIExJIGExLCAweERFQUQgLyBCRVEgYTAsIGExLCAuaWd1YWwuIFNlbSBDTVAgcG9ycXVlIFJJU0MtViDDqSBSSVNDIHB1cm86IGJyYW5jaCBqw6EgY29tcGFyYS4=',
+    'eDg2OiBDTVAgYXR1YWxpemEgUkZMQUdTLCBKRSBsw6ogWkYuIFJJU0MtVjogQkVRIGNvbXBhcmEgZSBzYWx0YSBlbSAxIGluc3RydcOnw6NvLCBzZW0gcmVnaXN0cmFkb3IgZGUgZmxhZ3Mu',
+    'TEkgdDIsIDB4REVBRCAvIExJIHQzLCAwIC8gbG9vcDogTFcgdDAsIDAoYTApIC8gQkVRIHQwLCB0MiwgLmFjaG91IC8gQURESSBhMCwgYTAsIDQgLyBBRERJIHQzLCB0MywgMSAvIExJIHQ0LCA0IC8gQkxUIHQzLCB0NCwgbG9vcC4='
+  ],
   },
 
   // ── Q04 ──────────────────────────────────────────────────────
@@ -110,12 +110,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: A grade tem dimensões[8] com pares (base, altura). Escreva Assembly MIPS que calcula a área do par na posição i (i em $t3), carregando base de dim[2i] e altura de dim[2i+1].',
     ],
     gabarito: [
-      '15 = 0x0000000F, 8 = 0x00000008. Resultado = 120 = 0x00000078.',
-      'HI = parte alta do produto (bits 63-32). LO = parte baixa (bits 31-0). Para resultados que cabem em 32 bits, só LO importa.',
-      'LI $t0, 15 / LI $t1, 8 / MULT $t0, $t1 / NOP (delay slot) / MFLO $t2. Delay slot: instrução após MULT sempre executa antes do resultado ser disponível.',
-      'MIPS é RISC — sem EFLAGS. Overflow em MULT: verificar se HI ≠ 0 (resultado maior que 32 bits).',
-      'SLL $t4, $t3, 1 / SLL $t5, $t4, 2 / ADDU $t6, $a0, $t5 / LW $t0, 0($t6) / LW $t1, 4($t6) / MULT $t0, $t1 / MFLO $v0.',
-    ],
+    'MTUgPSAweDAwMDAwMDBGLCA4ID0gMHgwMDAwMDAwOC4gUmVzdWx0YWRvID0gMTIwID0gMHgwMDAwMDA3OC4=',
+    'SEkgPSBwYXJ0ZSBhbHRhIGRvIHByb2R1dG8gKGJpdHMgNjMtMzIpLiBMTyA9IHBhcnRlIGJhaXhhIChiaXRzIDMxLTApLiBQYXJhIHJlc3VsdGFkb3MgcXVlIGNhYmVtIGVtIDMyIGJpdHMsIHPDsyBMTyBpbXBvcnRhLg==',
+    'TEkgJHQwLCAxNSAvIExJICR0MSwgOCAvIE1VTFQgJHQwLCAkdDEgLyBOT1AgKGRlbGF5IHNsb3QpIC8gTUZMTyAkdDIuIERlbGF5IHNsb3Q6IGluc3RydcOnw6NvIGFww7NzIE1VTFQgc2VtcHJlIGV4ZWN1dGEgYW50ZXMgZG8gcmVzdWx0YWRvIHNlciBkaXNwb27DrXZlbC4=',
+    'TUlQUyDDqSBSSVNDIOKAlCBzZW0gRUZMQUdTLiBPdmVyZmxvdyBlbSBNVUxUOiB2ZXJpZmljYXIgc2UgSEkg4omgIDAgKHJlc3VsdGFkbyBtYWlvciBxdWUgMzIgYml0cyku',
+    'U0xMICR0NCwgJHQzLCAxIC8gU0xMICR0NSwgJHQ0LCAyIC8gQUREVSAkdDYsICRhMCwgJHQ1IC8gTFcgJHQwLCAwKCR0NikgLyBMVyAkdDEsIDQoJHQ2KSAvIE1VTFQgJHQwLCAkdDEgLyBNRkxPICR2MC4='
+  ],
   },
 
   // ── Q05 ──────────────────────────────────────────────────────
@@ -138,12 +138,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: Um arquivo tem header[8] = {0x01, 0xFF, 0x7F, 0x80, ...} (8 bytes signed). Escreva Assembly ARM64 que carrega header[1] (0xFF = -1) e header[2] (0x7F = 127) com SEXTB e calcula a soma em X0.',
     ],
     gabarito: [
-      '42 = 0010 1010. NOT = 1101 0101. +1 = 1101 0110 = -42 em 8 bits.',
-      'SEXT replica o MSB (bit 7 = 1) nos 56 bits superiores: 1111...1111 1101 0110. 56 bits 1 replicados + 8 bits originais.',
-      'SXTB X0, W1. SXTB: X0 = -42 (sign extend). UXTB: X0 = 214 (zero extend, interpreta como unsigned).',
-      'SEXT preserva o valor numérico com sinal. ZEXT de -42 daria 214, interpretação errada para aritmética de ponteiros.',
-      'LDRB W0, [X1, #1] / SXTB X0, W0 ; -1 / LDRB W1, [X1, #2] / SXTB X1, W1 ; +127 / ADD X0, X0, X1 ; resultado = 126.',
-    ],
+    'NDIgPSAwMDEwIDEwMTAuIE5PVCA9IDExMDEgMDEwMS4gKzEgPSAxMTAxIDAxMTAgPSAtNDIgZW0gOCBiaXRzLg==',
+    'U0VYVCByZXBsaWNhIG8gTVNCIChiaXQgNyA9IDEpIG5vcyA1NiBiaXRzIHN1cGVyaW9yZXM6IDExMTEuLi4xMTExIDExMDEgMDExMC4gNTYgYml0cyAxIHJlcGxpY2Fkb3MgKyA4IGJpdHMgb3JpZ2luYWlzLg==',
+    'U1hUQiBYMCwgVzEuIFNYVEI6IFgwID0gLTQyIChzaWduIGV4dGVuZCkuIFVYVEI6IFgwID0gMjE0ICh6ZXJvIGV4dGVuZCwgaW50ZXJwcmV0YSBjb21vIHVuc2lnbmVkKS4=',
+    'U0VYVCBwcmVzZXJ2YSBvIHZhbG9yIG51bcOpcmljbyBjb20gc2luYWwuIFpFWFQgZGUgLTQyIGRhcmlhIDIxNCwgaW50ZXJwcmV0YcOnw6NvIGVycmFkYSBwYXJhIGFyaXRtw6l0aWNhIGRlIHBvbnRlaXJvcy4=',
+    'TERSQiBXMCwgW1gxLCAjMV0gLyBTWFRCIFgwLCBXMCA7IC0xIC8gTERSQiBXMSwgW1gxLCAjMl0gLyBTWFRCIFgxLCBXMSA7ICsxMjcgLyBBREQgWDAsIFgwLCBYMSA7IHJlc3VsdGFkbyA9IDEyNi4='
+  ],
   },
 
   // ── Q06 ──────────────────────────────────────────────────────
@@ -166,12 +166,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: Um buffer recebe 8 pacotes em flags[8]. Escreva Assembly x86-64 que conta quantos pacotes têm o bit SYN ativo, armazenando o contador em RCX.',
     ],
     gabarito: [
-      '0x8A = 1000 1010. Bits ativos: 1 (bit 1), 3 (bit 3), 7 (bit 7).',
-      '1000 1010 AND 0000 1000 = 0000 1000 = 8 ≠ 0. Bit SYN está ATIVO.',
-      'TEST EAX, 0x08 (verifica SYN) / AND EAX, 0x7F (limpa bit 7: NOT(0x80)=0x7F) / OR EAX, 0x04 (ativa bit 2).',
-      'AND/OR: ZF=1 se resultado=0, SF=1 se MSB=1. CF=OF=0 sempre (operações lógicas nunca geram carry/overflow).',
-      'XOR RCX, RCX / MOV RSI, flags / MOV R8, 8 / loop: MOV EAX, [RSI] / TEST EAX, 0x08 / JZ .skip / INC RCX / .skip: ADD RSI, 4 / DEC R8 / JNZ loop.',
-    ],
+    'MHg4QSA9IDEwMDAgMTAxMC4gQml0cyBhdGl2b3M6IDEgKGJpdCAxKSwgMyAoYml0IDMpLCA3IChiaXQgNyku',
+    'MTAwMCAxMDEwIEFORCAwMDAwIDEwMDAgPSAwMDAwIDEwMDAgPSA4IOKJoCAwLiBCaXQgU1lOIGVzdMOhIEFUSVZPLg==',
+    'VEVTVCBFQVgsIDB4MDggKHZlcmlmaWNhIFNZTikgLyBBTkQgRUFYLCAweDdGIChsaW1wYSBiaXQgNzogTk9UKDB4ODApPTB4N0YpIC8gT1IgRUFYLCAweDA0IChhdGl2YSBiaXQgMiku',
+    'QU5EL09SOiBaRj0xIHNlIHJlc3VsdGFkbz0wLCBTRj0xIHNlIE1TQj0xLiBDRj1PRj0wIHNlbXByZSAob3BlcmHDp8O1ZXMgbMOzZ2ljYXMgbnVuY2EgZ2VyYW0gY2Fycnkvb3ZlcmZsb3cpLg==',
+    'WE9SIFJDWCwgUkNYIC8gTU9WIFJTSSwgZmxhZ3MgLyBNT1YgUjgsIDggLyBsb29wOiBNT1YgRUFYLCBbUlNJXSAvIFRFU1QgRUFYLCAweDA4IC8gSlogLnNraXAgLyBJTkMgUkNYIC8gLnNraXA6IEFERCBSU0ksIDQgLyBERUMgUjggLyBKTlogbG9vcC4='
+  ],
   },
 
   // ── Q07 ──────────────────────────────────────────────────────
@@ -194,12 +194,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: Um array de 8 inteiros amostras[8] precisa ser multiplicado por 4. Escreva Assembly ARM32 que faz LSL #2 em cada elemento e armazena no mesmo array (in-place).',
     ],
     gabarito: [
-      '13 = 0000 1101. LSL #2 = 0011 0100 = 52. Equivale a 13 × 4.',
-      'LSR #1: 0000 0110 = 6. ASR #1: igual para positivos (replica o 0). Diferença aparece em negativos: ASR replica bit de sinal.',
-      'MOV R0, #13 / LSL R1, R0, #2 / LSR R2, R0, #1. LSL é 1 ciclo, MUL pode ser multi-ciclo em ARM simples.',
-      '13 = 0000 1101. 13 << 28: o bit 3 (=1) eventualmente é deslocado para fora — CF=1 quando isso ocorre.',
-      'LDR R1, =amostras / MOV R2, #0 / loop: LDR R0, [R1, R2, LSL #2] / LSL R0, R0, #2 / STR R0, [R1, R2, LSL #2] / ADD R2, #1 / CMP R2, #8 / BLT loop.',
-    ],
+    'MTMgPSAwMDAwIDExMDEuIExTTCAjMiA9IDAwMTEgMDEwMCA9IDUyLiBFcXVpdmFsZSBhIDEzIMOXIDQu',
+    'TFNSICMxOiAwMDAwIDAxMTAgPSA2LiBBU1IgIzE6IGlndWFsIHBhcmEgcG9zaXRpdm9zIChyZXBsaWNhIG8gMCkuIERpZmVyZW7Dp2EgYXBhcmVjZSBlbSBuZWdhdGl2b3M6IEFTUiByZXBsaWNhIGJpdCBkZSBzaW5hbC4=',
+    'TU9WIFIwLCAjMTMgLyBMU0wgUjEsIFIwLCAjMiAvIExTUiBSMiwgUjAsICMxLiBMU0wgw6kgMSBjaWNsbywgTVVMIHBvZGUgc2VyIG11bHRpLWNpY2xvIGVtIEFSTSBzaW1wbGVzLg==',
+    'MTMgPSAwMDAwIDExMDEuIDEzIDw8IDI4OiBvIGJpdCAzICg9MSkgZXZlbnR1YWxtZW50ZSDDqSBkZXNsb2NhZG8gcGFyYSBmb3JhIOKAlCBDRj0xIHF1YW5kbyBpc3NvIG9jb3JyZS4=',
+    'TERSIFIxLCA9YW1vc3RyYXMgLyBNT1YgUjIsICMwIC8gbG9vcDogTERSIFIwLCBbUjEsIFIyLCBMU0wgIzJdIC8gTFNMIFIwLCBSMCwgIzIgLyBTVFIgUjAsIFtSMSwgUjIsIExTTCAjMl0gLyBBREQgUjIsICMxIC8gQ01QIFIyLCAjOCAvIEJMVCBsb29wLg=='
+  ],
   },
 
   // ── Q08 ──────────────────────────────────────────────────────
@@ -222,12 +222,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: Implemente em Assembly RISC-V uma função que some dois arrays de 4 inteiros (a[4] e b[4]) elemento a elemento e armazene em c[4]. Mostre o loop completo.',
     ],
     gabarito: [
-      '9 = 1001, 7 = 0111. 9+7=16 = 10000 — não cabe em 4 bits (carry-out = 1).',
-      'Bit0: A=1,B=1,Cin=0, XOR1=0, S=0, AND1=1, AND2=0, Cout=1. Bit1: A=0,B=1,Cin=1, XOR1=1, S=0, AND1=0, AND2=1, Cout=1. Bit2: A=0,B=1,Cin=1, XOR1=1, S=0, Cout=1. Bit3: A=1,B=0,Cin=1, XOR1=1, S=0, Cout=1.',
-      'Bit3: XOR1=1(saída=1), AND2=1(saída=1), OR=1(saída=1). Carry-out final = 1.',
-      'LI a0, 9 / LI a1, 7 / ADD a2, a0, a1. Após: a0=9, a1=7, a2=16.',
-      'LI t0, 0 / loop: LW t1, 0(a0) / LW t2, 0(a1) / ADD t3, t1, t2 / SW t3, 0(a2) / ADDI a0,a0,4 / ADDI a1,a1,4 / ADDI a2,a2,4 / ADDI t0,t0,1 / LI t4,4 / BLT t0,t4,loop.',
-    ],
+    'OSA9IDEwMDEsIDcgPSAwMTExLiA5Kzc9MTYgPSAxMDAwMCDigJQgbsOjbyBjYWJlIGVtIDQgYml0cyAoY2Fycnktb3V0ID0gMSku',
+    'Qml0MDogQT0xLEI9MSxDaW49MCwgWE9SMT0wLCBTPTAsIEFORDE9MSwgQU5EMj0wLCBDb3V0PTEuIEJpdDE6IEE9MCxCPTEsQ2luPTEsIFhPUjE9MSwgUz0wLCBBTkQxPTAsIEFORDI9MSwgQ291dD0xLiBCaXQyOiBBPTAsQj0xLENpbj0xLCBYT1IxPTEsIFM9MCwgQ291dD0xLiBCaXQzOiBBPTEsQj0wLENpbj0xLCBYT1IxPTEsIFM9MCwgQ291dD0xLg==',
+    'Qml0MzogWE9SMT0xKHNhw61kYT0xKSwgQU5EMj0xKHNhw61kYT0xKSwgT1I9MShzYcOtZGE9MSkuIENhcnJ5LW91dCBmaW5hbCA9IDEu',
+    'TEkgYTAsIDkgLyBMSSBhMSwgNyAvIEFERCBhMiwgYTAsIGExLiBBcMOzczogYTA9OSwgYTE9NywgYTI9MTYu',
+    'TEkgdDAsIDAgLyBsb29wOiBMVyB0MSwgMChhMCkgLyBMVyB0MiwgMChhMSkgLyBBREQgdDMsIHQxLCB0MiAvIFNXIHQzLCAwKGEyKSAvIEFEREkgYTAsYTAsNCAvIEFEREkgYTEsYTEsNCAvIEFEREkgYTIsYTIsNCAvIEFEREkgdDAsdDAsMSAvIExJIHQ0LDQgLyBCTFQgdDAsdDQsbG9vcC4='
+  ],
   },
 
   // ── Q09 ──────────────────────────────────────────────────────
@@ -250,12 +250,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: O osciloscópio captura 8 amostras de 8 bits cada: leituras[8] = {0xB4, 0x4C, 0xFF, 0x00, 0x80, 0x7F, 0xAA, 0x55}. Para cada amostra, determine se o MSB é HIGH ou LOW (escreva a sequência H/L).',
     ],
     gabarito: [
-      'A=0xB4=180dec=1011 0100. B=0x4C=76dec=0100 1100. S=256=0x100→wrap-around=0x00. CF=1(overflow unsigned), ZF=1(resultado=0).',
-      'A=10110100: T0=HIGH(1), T1=LOW(0), T2=HIGH(1), T3=HIGH(1), T4=LOW(0), T5=HIGH(1), T6=LOW(0), T7=LOW(0).',
-      'S=0x00, MSB(T0)=LOW(0V). SF=0 — resultado zero, não negativo. Mas CF=1 indica estouro unsigned.',
-      'Abaixo de 0.8V=LOW certo. Acima de 2V=HIGH certo. Entre 0.8V-2V = zona proibida. 1.2-1.8V = indeterminado, glitch, metaestabilidade.',
-      '0xB4=HIGH, 0x4C=LOW, 0xFF=HIGH, 0x00=LOW, 0x80=HIGH, 0x7F=LOW, 0xAA=HIGH, 0x55=LOW. Sequência: H L H L H L H L.',
-    ],
+    'QT0weEI0PTE4MGRlYz0xMDExIDAxMDAuIEI9MHg0Qz03NmRlYz0wMTAwIDExMDAuIFM9MjU2PTB4MTAw4oaSd3JhcC1hcm91bmQ9MHgwMC4gQ0Y9MShvdmVyZmxvdyB1bnNpZ25lZCksIFpGPTEocmVzdWx0YWRvPTApLg==',
+    'QT0xMDExMDEwMDogVDA9SElHSCgxKSwgVDE9TE9XKDApLCBUMj1ISUdIKDEpLCBUMz1ISUdIKDEpLCBUND1MT1coMCksIFQ1PUhJR0goMSksIFQ2PUxPVygwKSwgVDc9TE9XKDApLg==',
+    'Uz0weDAwLCBNU0IoVDApPUxPVygwVikuIFNGPTAg4oCUIHJlc3VsdGFkbyB6ZXJvLCBuw6NvIG5lZ2F0aXZvLiBNYXMgQ0Y9MSBpbmRpY2EgZXN0b3VybyB1bnNpZ25lZC4=',
+    'QWJhaXhvIGRlIDAuOFY9TE9XIGNlcnRvLiBBY2ltYSBkZSAyVj1ISUdIIGNlcnRvLiBFbnRyZSAwLjhWLTJWID0gem9uYSBwcm9pYmlkYS4gMS4yLTEuOFYgPSBpbmRldGVybWluYWRvLCBnbGl0Y2gsIG1ldGFlc3RhYmlsaWRhZGUu',
+    'MHhCND1ISUdILCAweDRDPUxPVywgMHhGRj1ISUdILCAweDAwPUxPVywgMHg4MD1ISUdILCAweDdGPUxPVywgMHhBQT1ISUdILCAweDU1PUxPVy4gU2VxdcOqbmNpYTogSCBMIEggTCBIIEwgSCBMLg=='
+  ],
   },
 
   // ── Q10 ──────────────────────────────────────────────────────
@@ -278,12 +278,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: pixels[12] armazena 4 pixels RGB consecutivos (R0,G0,B0,R1,G1,B1,...). Escreva Assembly MIPS que calcula o brilho médio do pixel 0: (R0+G0+B0)/3.',
     ],
     gabarito: [
-      'r=1111 1111, g=1000 0000, b=0100 0000. MSBs: r=1, g=1, b=0. Como unsigned: ZEXT (não SEXT).',
-      'SEXT de 0xFF = 0xFFFFFFFF = -1 decimal. Errado — pixel 255 deve ser +255, não -1.',
-      'LBU $t0, r / LBU $t1, g / LBU $t2, b / ADDU $t3, $t0, $t1 / ADDU $t3, $t3, $t2 / LI $t4, 3 / DIV $t3, $t4 / MFLO $v0.',
-      '1111 1111 + 1000 0000 = 0111 1111 com CF=1. Em 8 bits blend saturation: clip a 255 ou usa 16 bits.',
-      'LBU $t0, 0($a0) / LBU $t1, 1($a0) / LBU $t2, 2($a0) / ADDU $t3,$t0,$t1 / ADDU $t3,$t3,$t2 / LI $t4,3 / DIV $t3,$t4 / MFLO $v0.',
-    ],
+    'cj0xMTExIDExMTEsIGc9MTAwMCAwMDAwLCBiPTAxMDAgMDAwMC4gTVNCczogcj0xLCBnPTEsIGI9MC4gQ29tbyB1bnNpZ25lZDogWkVYVCAobsOjbyBTRVhUKS4=',
+    'U0VYVCBkZSAweEZGID0gMHhGRkZGRkZGRiA9IC0xIGRlY2ltYWwuIEVycmFkbyDigJQgcGl4ZWwgMjU1IGRldmUgc2VyICsyNTUsIG7Do28gLTEu',
+    'TEJVICR0MCwgciAvIExCVSAkdDEsIGcgLyBMQlUgJHQyLCBiIC8gQUREVSAkdDMsICR0MCwgJHQxIC8gQUREVSAkdDMsICR0MywgJHQyIC8gTEkgJHQ0LCAzIC8gRElWICR0MywgJHQ0IC8gTUZMTyAkdjAu',
+    'MTExMSAxMTExICsgMTAwMCAwMDAwID0gMDExMSAxMTExIGNvbSBDRj0xLiBFbSA4IGJpdHMgYmxlbmQgc2F0dXJhdGlvbjogY2xpcCBhIDI1NSBvdSB1c2EgMTYgYml0cy4=',
+    'TEJVICR0MCwgMCgkYTApIC8gTEJVICR0MSwgMSgkYTApIC8gTEJVICR0MiwgMigkYTApIC8gQUREVSAkdDMsJHQwLCR0MSAvIEFERFUgJHQzLCR0MywkdDIgLyBMSSAkdDQsMyAvIERJViAkdDMsJHQ0IC8gTUZMTyAkdjAu'
+  ],
   },
 
   // ── Q11 ──────────────────────────────────────────────────────
@@ -306,12 +306,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: Um buffer de checksums tem crc[4] = {3000000000U, 2000000000U, 1500000000U, 2500000000U}. Escreva Assembly ARM64 que soma todos os elementos em X0 (usando 64 bits para evitar overflow).',
     ],
     gabarito: [
-      'MAX uint32 = 4.294.967.295. 3B + 2B = 5B > 4.29B. Wrap-around: 5.000.000.000 - 4.294.967.296 = 705.032.704.',
-      '3B=0xB2D05E00, 2B=0x77359400. Soma=0x12A05F200→trunca para 0x2A05F200. CF=1(overflow unsigned). OF depende de interpretação signed.',
-      'MOV W0, #... / MOV W1, #... / ADD W2, W0, W1. W=32 bits, trunca automaticamente. unsigned int é 32 bits.',
-      'Com X0/X1 (64 bits): 5.000.000.000 cabe perfeitamente, sem overflow. Usar o tipo correto é fundamental.',
-      'LDR X1,[X0] / LDR X2,[X0,#4] / UXTW X2,W2 / ADD X1,X1,X2 / LDR X3,[X0,#8] / UXTW X3,W3 / ADD X1,X1,X3 / LDR X4,[X0,#12] / UXTW X4,W4 / ADD X0,X1,X4.',
-    ],
+    'TUFYIHVpbnQzMiA9IDQuMjk0Ljk2Ny4yOTUuIDNCICsgMkIgPSA1QiA+IDQuMjlCLiBXcmFwLWFyb3VuZDogNS4wMDAuMDAwLjAwMCAtIDQuMjk0Ljk2Ny4yOTYgPSA3MDUuMDMyLjcwNC4=',
+    'M0I9MHhCMkQwNUUwMCwgMkI9MHg3NzM1OTQwMC4gU29tYT0weDEyQTA1RjIwMOKGknRydW5jYSBwYXJhIDB4MkEwNUYyMDAuIENGPTEob3ZlcmZsb3cgdW5zaWduZWQpLiBPRiBkZXBlbmRlIGRlIGludGVycHJldGHDp8OjbyBzaWduZWQu',
+    'TU9WIFcwLCAjLi4uIC8gTU9WIFcxLCAjLi4uIC8gQUREIFcyLCBXMCwgVzEuIFc9MzIgYml0cywgdHJ1bmNhIGF1dG9tYXRpY2FtZW50ZS4gdW5zaWduZWQgaW50IMOpIDMyIGJpdHMu',
+    'Q29tIFgwL1gxICg2NCBiaXRzKTogNS4wMDAuMDAwLjAwMCBjYWJlIHBlcmZlaXRhbWVudGUsIHNlbSBvdmVyZmxvdy4gVXNhciBvIHRpcG8gY29ycmV0byDDqSBmdW5kYW1lbnRhbC4=',
+    'TERSIFgxLFtYMF0gLyBMRFIgWDIsW1gwLCM0XSAvIFVYVFcgWDIsVzIgLyBBREQgWDEsWDEsWDIgLyBMRFIgWDMsW1gwLCM4XSAvIFVYVFcgWDMsVzMgLyBBREQgWDEsWDEsWDMgLyBMRFIgWDQsW1gwLCMxMl0gLyBVWFRXIFg0LFc0IC8gQUREIFgwLFgxLFg0Lg=='
+  ],
   },
 
   // ── Q12 ──────────────────────────────────────────────────────
@@ -334,12 +334,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: Um buffer de comunicação tem bytes[8]. Escreva Assembly x86-64 que verifica a paridade de cada byte e conta quantos têm paridade ímpar (PF=0) em RCX.',
     ],
     gabarito: [
-      '10110101: bits 1 nas posições 0,2,4,5,7 = 5 bits. Número ÍMPAR → PF=0 (PF=1 somente se par).',
-      'PF indica paridade do byte baixo do resultado. Usado em comunicação serial (RS-232) e memórias ECC. Raro hoje em software.',
-      'MOV AL, 0b10110101 / ADD AL, 0 / JPE .paridade_par / JPO .paridade_impar.',
-      '0b10110111: bits 1 = 0,1,2,4,5,7 = 6 bits. Par → PF=1. Sim, PF muda — detecção de erro de 1 bit funciona.',
-      'XOR RCX,RCX / MOV RSI,bytes / MOV R8,8 / loop: MOV AL,[RSI] / ADD AL,0 / JPE .skip / INC RCX / .skip: INC RSI / DEC R8 / JNZ loop.',
-    ],
+    'MTAxMTAxMDE6IGJpdHMgMSBuYXMgcG9zacOnw7VlcyAwLDIsNCw1LDcgPSA1IGJpdHMuIE7Dum1lcm8gw41NUEFSIOKGkiBQRj0wIChQRj0xIHNvbWVudGUgc2UgcGFyKS4=',
+    'UEYgaW5kaWNhIHBhcmlkYWRlIGRvIGJ5dGUgYmFpeG8gZG8gcmVzdWx0YWRvLiBVc2FkbyBlbSBjb211bmljYcOnw6NvIHNlcmlhbCAoUlMtMjMyKSBlIG1lbcOzcmlhcyBFQ0MuIFJhcm8gaG9qZSBlbSBzb2Z0d2FyZS4=',
+    'TU9WIEFMLCAwYjEwMTEwMTAxIC8gQUREIEFMLCAwIC8gSlBFIC5wYXJpZGFkZV9wYXIgLyBKUE8gLnBhcmlkYWRlX2ltcGFyLg==',
+    'MGIxMDExMDExMTogYml0cyAxID0gMCwxLDIsNCw1LDcgPSA2IGJpdHMuIFBhciDihpIgUEY9MS4gU2ltLCBQRiBtdWRhIOKAlCBkZXRlY8Onw6NvIGRlIGVycm8gZGUgMSBiaXQgZnVuY2lvbmEu',
+    'WE9SIFJDWCxSQ1ggLyBNT1YgUlNJLGJ5dGVzIC8gTU9WIFI4LDggLyBsb29wOiBNT1YgQUwsW1JTSV0gLyBBREQgQUwsMCAvIEpQRSAuc2tpcCAvIElOQyBSQ1ggLyAuc2tpcDogSU5DIFJTSSAvIERFQyBSOCAvIEpOWiBsb29wLg=='
+  ],
   },
 
   // ── Q13 ──────────────────────────────────────────────────────
@@ -362,12 +362,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: Implemente um passo do Bubble Sort em RISC-V para um array de 4 inteiros v[4]. O loop deve comparar pares adjacentes e trocar se necessário.',
     ],
     gabarito: [
-      '42=0x0000002A, 17=0x00000011. 42-17=25, CF=0(sem borrow), OF=0(sem overflow). Resultado=25.',
-      'BLE t0,t1,.nao_troca ou usar BGT t0,t1,.trocar — BGT compara diretamente t0>t1.',
-      'LW t0,0(a0) / LW t1,4(a0) / BGT t0,t1,.swap / J .fim / .swap: SW t1,0(a0) / SW t0,4(a0) / .fim.',
-      'RISC-V: ~6 instruções. x86: ~4 com CMOV. RISC-V é eficiente porque todas são 32 bits fixos, pipeline simples.',
-      'LI t2,0 / loop: LW t0,0(a0) / LW t1,4(a0) / BLE t0,t1,.skip / SW t1,0(a0) / SW t0,4(a0) / .skip: ADDI a0,a0,4 / ADDI t2,t2,1 / LI t3,3 / BLT t2,t3,loop.',
-    ],
+    'NDI9MHgwMDAwMDAyQSwgMTc9MHgwMDAwMDAxMS4gNDItMTc9MjUsIENGPTAoc2VtIGJvcnJvdyksIE9GPTAoc2VtIG92ZXJmbG93KS4gUmVzdWx0YWRvPTI1Lg==',
+    'QkxFIHQwLHQxLC5uYW9fdHJvY2Egb3UgdXNhciBCR1QgdDAsdDEsLnRyb2NhciDigJQgQkdUIGNvbXBhcmEgZGlyZXRhbWVudGUgdDA+dDEu',
+    'TFcgdDAsMChhMCkgLyBMVyB0MSw0KGEwKSAvIEJHVCB0MCx0MSwuc3dhcCAvIEogLmZpbSAvIC5zd2FwOiBTVyB0MSwwKGEwKSAvIFNXIHQwLDQoYTApIC8gLmZpbS4=',
+    'UklTQy1WOiB+NiBpbnN0cnXDp8O1ZXMuIHg4NjogfjQgY29tIENNT1YuIFJJU0MtViDDqSBlZmljaWVudGUgcG9ycXVlIHRvZGFzIHPDo28gMzIgYml0cyBmaXhvcywgcGlwZWxpbmUgc2ltcGxlcy4=',
+    'TEkgdDIsMCAvIGxvb3A6IExXIHQwLDAoYTApIC8gTFcgdDEsNChhMCkgLyBCTEUgdDAsdDEsLnNraXAgLyBTVyB0MSwwKGEwKSAvIFNXIHQwLDQoYTApIC8gLnNraXA6IEFEREkgYTAsYTAsNCAvIEFEREkgdDIsdDIsMSAvIExJIHQzLDMgLyBCTFQgdDIsdDMsbG9vcC4='
+  ],
   },
 
   // ── Q14 ──────────────────────────────────────────────────────
@@ -390,12 +390,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: Um array de 8 inteiros valores[8] contém positivos e negativos. Escreva Assembly ARM32 que substitui cada elemento pelo seu valor absoluto usando execução condicional (sem branch dentro do loop).',
     ],
     gabarito: [
-      '37=0x25=0000...0010 0101. NOT=1111...1101 1010. +1=1111...1101 1011 = 0xFFFFFFDB = -37.',
-      'CMP R0,#0: N=1(negativo), Z=0, C=0, V=0. N=1 indica resultado negativo.',
-      'CMP R0, #0 / RSBLT R0, R0, #0 ; if(R0<0) R0 = 0 - R0. Apenas 2 instruções, sem branch!',
-      'x86: CMP EAX,0 / JGE .pos / NEG EAX / .pos: — 3 instruções + 1 branch. ARM usa 2 instruções sem branch.',
-      'LDR R1,=valores / MOV R2,#0 / loop: LDR R0,[R1,R2,LSL#2] / CMP R0,#0 / RSBLT R0,R0,#0 / STR R0,[R1,R2,LSL#2] / ADD R2,#1 / CMP R2,#8 / BLT loop.',
-    ],
+    'Mzc9MHgyNT0wMDAwLi4uMDAxMCAwMTAxLiBOT1Q9MTExMS4uLjExMDEgMTAxMC4gKzE9MTExMS4uLjExMDEgMTAxMSA9IDB4RkZGRkZGREIgPSAtMzcu',
+    'Q01QIFIwLCMwOiBOPTEobmVnYXRpdm8pLCBaPTAsIEM9MCwgVj0wLiBOPTEgaW5kaWNhIHJlc3VsdGFkbyBuZWdhdGl2by4=',
+    'Q01QIFIwLCAjMCAvIFJTQkxUIFIwLCBSMCwgIzAgOyBpZihSMDwwKSBSMCA9IDAgLSBSMC4gQXBlbmFzIDIgaW5zdHJ1w6fDtWVzLCBzZW0gYnJhbmNoIQ==',
+    'eDg2OiBDTVAgRUFYLDAgLyBKR0UgLnBvcyAvIE5FRyBFQVggLyAucG9zOiDigJQgMyBpbnN0cnXDp8O1ZXMgKyAxIGJyYW5jaC4gQVJNIHVzYSAyIGluc3RydcOnw7VlcyBzZW0gYnJhbmNoLg==',
+    'TERSIFIxLD12YWxvcmVzIC8gTU9WIFIyLCMwIC8gbG9vcDogTERSIFIwLFtSMSxSMixMU0wjMl0gLyBDTVAgUjAsIzAgLyBSU0JMVCBSMCxSMCwjMCAvIFNUUiBSMCxbUjEsUjIsTFNMIzJdIC8gQUREIFIyLCMxIC8gQ01QIFIyLCM4IC8gQkxUIGxvb3Au'
+  ],
   },
 
   // ── Q15 ──────────────────────────────────────────────────────
@@ -418,12 +418,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: contadores[4] = {4294967290U, 4294967295U, 4294967294U, 4294967292U}. Escreva Assembly x86-64 que soma 10 a cada elemento e armazena o resultado, detectando quais sofreram rollover (CF=1) e incrementando um contador de rollovers em R9.',
     ],
     gabarito: [
-      'MAX=0xFFFFFFFF=4294967295. 4294967290+10=4294967300. Wrap: 4294967300-4294967296=4. Novo valor=4.',
-      '4294967290=0xFFFFFFFA. Byte baixo=0xFA=1111 1010. Bits 1: posições 1,3,4,5,6,7 = 6 bits → par → PF=1.',
-      'MOV EAX,[contador] / MOV EBX,[pacotes] / ADD EAX,EBX. CF=1 após wrap-around. JC .rollover detecta.',
-      'C padrão: unsigned overflow é módulo 2^N — comportamento definido. Signed overflow é UB pois compilador pode assumir que não ocorre.',
-      'XOR R9,R9 / MOV RSI,contadores / MOV RCX,4 / loop: MOV EAX,[RSI] / ADD EAX,10 / MOV [RSI],EAX / JNC .skip / INC R9 / .skip: ADD RSI,4 / DEC RCX / JNZ loop.',
-    ],
+    'TUFYPTB4RkZGRkZGRkY9NDI5NDk2NzI5NS4gNDI5NDk2NzI5MCsxMD00Mjk0OTY3MzAwLiBXcmFwOiA0Mjk0OTY3MzAwLTQyOTQ5NjcyOTY9NC4gTm92byB2YWxvcj00Lg==',
+    'NDI5NDk2NzI5MD0weEZGRkZGRkZBLiBCeXRlIGJhaXhvPTB4RkE9MTExMSAxMDEwLiBCaXRzIDE6IHBvc2nDp8O1ZXMgMSwzLDQsNSw2LDcgPSA2IGJpdHMg4oaSIHBhciDihpIgUEY9MS4=',
+    'TU9WIEVBWCxbY29udGFkb3JdIC8gTU9WIEVCWCxbcGFjb3Rlc10gLyBBREQgRUFYLEVCWC4gQ0Y9MSBhcMOzcyB3cmFwLWFyb3VuZC4gSkMgLnJvbGxvdmVyIGRldGVjdGEu',
+    'QyBwYWRyw6NvOiB1bnNpZ25lZCBvdmVyZmxvdyDDqSBtw7NkdWxvIDJeTiDigJQgY29tcG9ydGFtZW50byBkZWZpbmlkby4gU2lnbmVkIG92ZXJmbG93IMOpIFVCIHBvaXMgY29tcGlsYWRvciBwb2RlIGFzc3VtaXIgcXVlIG7Do28gb2NvcnJlLg==',
+    'WE9SIFI5LFI5IC8gTU9WIFJTSSxjb250YWRvcmVzIC8gTU9WIFJDWCw0IC8gbG9vcDogTU9WIEVBWCxbUlNJXSAvIEFERCBFQVgsMTAgLyBNT1YgW1JTSV0sRUFYIC8gSk5DIC5za2lwIC8gSU5DIFI5IC8gLnNraXA6IEFERCBSU0ksNCAvIERFQyBSQ1ggLyBKTlogbG9vcC4='
+  ],
   },
 
   // ── Q16 ──────────────────────────────────────────────────────
@@ -446,12 +446,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: Um array de 4 timestamps long long tempos[4] precisa ser somado com um offset de 86400000. Escreva Assembly ARM64 que percorre o array e adiciona o offset a cada elemento.',
     ],
     gabarito: [
-      'INT32 max = 2147483647 ≈ 2.1B. UNIX timestamp 2024 > 1.7T — não cabe. LONG LONG max = 9.2 × 10^18.',
-      '86400000 = 0x0524F800 — cabe em 32 bits (< 0xFFFFFFFF). Não cabe em 16 bits (max 65535).',
-      'MOV X0, #0xF800 / MOVK X0, #0x524, LSL #16 / (mais MOVK para bits altos). ARM64 MOV é 16 bits por vez, MOVK "move with keep" preserva os outros bits.',
-      'ts1+ts2 ≈ 1.7T+86M: resultado positivo pequeno vs max. N=0(positivo), Z=0, C=0(sem overflow 64b), V=0. Nenhum flag ativado.',
-      'MOV X2, #86400000 / MOV X3, #0 / loop: LDR X0, [X1, X3, LSL #3] / ADD X0, X0, X2 / STR X0, [X1, X3, LSL #3] / ADD X3, X3, #1 / CMP X3, #4 / BLT loop.',
-    ],
+    'SU5UMzIgbWF4ID0gMjE0NzQ4MzY0NyDiiYggMi4xQi4gVU5JWCB0aW1lc3RhbXAgMjAyNCA+IDEuN1Qg4oCUIG7Do28gY2FiZS4gTE9ORyBMT05HIG1heCA9IDkuMiDDlyAxMF4xOC4=',
+    'ODY0MDAwMDAgPSAweDA1MjRGODAwIOKAlCBjYWJlIGVtIDMyIGJpdHMgKDwgMHhGRkZGRkZGRikuIE7Do28gY2FiZSBlbSAxNiBiaXRzIChtYXggNjU1MzUpLg==',
+    'TU9WIFgwLCAjMHhGODAwIC8gTU9WSyBYMCwgIzB4NTI0LCBMU0wgIzE2IC8gKG1haXMgTU9WSyBwYXJhIGJpdHMgYWx0b3MpLiBBUk02NCBNT1Ygw6kgMTYgYml0cyBwb3IgdmV6LCBNT1ZLICJtb3ZlIHdpdGgga2VlcCIgcHJlc2VydmEgb3Mgb3V0cm9zIGJpdHMu',
+    'dHMxK3RzMiDiiYggMS43VCs4Nk06IHJlc3VsdGFkbyBwb3NpdGl2byBwZXF1ZW5vIHZzIG1heC4gTj0wKHBvc2l0aXZvKSwgWj0wLCBDPTAoc2VtIG92ZXJmbG93IDY0YiksIFY9MC4gTmVuaHVtIGZsYWcgYXRpdmFkby4=',
+    'TU9WIFgyLCAjODY0MDAwMDAgLyBNT1YgWDMsICMwIC8gbG9vcDogTERSIFgwLCBbWDEsIFgzLCBMU0wgIzNdIC8gQUREIFgwLCBYMCwgWDIgLyBTVFIgWDAsIFtYMSwgWDMsIExTTCAjM10gLyBBREQgWDMsIFgzLCAjMSAvIENNUCBYMywgIzQgLyBCTFQgbG9vcC4='
+  ],
   },
 
   // ── Q17 ──────────────────────────────────────────────────────
@@ -474,12 +474,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: Modifique o Assembly para busca em um array de 8 inteiros v[8] = {10,45,99,22,67,99,13,5}. Retorne a posição da ÚLTIMA ocorrência de 99 (não a primeira).',
     ],
     gabarito: [
-      '99=0x63=0110 0011, 22=0x16=0001 0110. 99-22=77>0. CF=0(sem borrow), SF=0(positivo).',
-      'BEQ $t0,$t1,igual — compara diretamente. Alternativa: SUBU $t2,$t0,$t1 / BEQ $t2,$zero,igual.',
-      'LI $t0,0 / LI $v0,-1 / LA $t1,v / loop: LW $t2,0($t1) / BEQ $t2,$a0,.acha / NOP / ADDI $t1,$t1,4 / ADDI $t0,$t0,1 / SLTI $t3,$t0,5 / BNE $t3,$zero,loop / NOP / J .fim / .acha: MOVE $v0,$t0 / .fim.',
-      'NOP após BEQ e BNE — instrução seguinte ao branch executa sempre. Sem NOP o próximo LW executaria antes do branch ser resolvido.',
-      'Loop igual mas não usa break. Quando encontra: MOVE $v0,$t0 e continua o loop. Ao final $v0 tem a última posição.',
-    ],
+    'OTk9MHg2Mz0wMTEwIDAwMTEsIDIyPTB4MTY9MDAwMSAwMTEwLiA5OS0yMj03Nz4wLiBDRj0wKHNlbSBib3Jyb3cpLCBTRj0wKHBvc2l0aXZvKS4=',
+    'QkVRICR0MCwkdDEsaWd1YWwg4oCUIGNvbXBhcmEgZGlyZXRhbWVudGUuIEFsdGVybmF0aXZhOiBTVUJVICR0MiwkdDAsJHQxIC8gQkVRICR0MiwkemVybyxpZ3VhbC4=',
+    'TEkgJHQwLDAgLyBMSSAkdjAsLTEgLyBMQSAkdDEsdiAvIGxvb3A6IExXICR0MiwwKCR0MSkgLyBCRVEgJHQyLCRhMCwuYWNoYSAvIE5PUCAvIEFEREkgJHQxLCR0MSw0IC8gQURESSAkdDAsJHQwLDEgLyBTTFRJICR0MywkdDAsNSAvIEJORSAkdDMsJHplcm8sbG9vcCAvIE5PUCAvIEogLmZpbSAvIC5hY2hhOiBNT1ZFICR2MCwkdDAgLyAuZmltLg==',
+    'Tk9QIGFww7NzIEJFUSBlIEJORSDigJQgaW5zdHJ1w6fDo28gc2VndWludGUgYW8gYnJhbmNoIGV4ZWN1dGEgc2VtcHJlLiBTZW0gTk9QIG8gcHLDs3hpbW8gTFcgZXhlY3V0YXJpYSBhbnRlcyBkbyBicmFuY2ggc2VyIHJlc29sdmlkby4=',
+    'TG9vcCBpZ3VhbCBtYXMgbsOjbyB1c2EgYnJlYWsuIFF1YW5kbyBlbmNvbnRyYTogTU9WRSAkdjAsJHQwIGUgY29udGludWEgbyBsb29wLiBBbyBmaW5hbCAkdjAgdGVtIGEgw7psdGltYSBwb3Npw6fDo28u'
+  ],
   },
 
   // ── Q18 ──────────────────────────────────────────────────────
@@ -502,12 +502,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: blocos[8] e referencia[8] armazenam valores de pixels. Escreva Assembly x86-64 que calcula sad[8] (Sum of Absolute Differences): sad[i] = |blocos[i] - referencia[i]|.',
     ],
     gabarito: [
-      '200=0xC8, 237=0xED. NOT(237)+1=0xFFFFFF13 (-237). 200+(-237)=0xFFFFFFDB=-37. SF=1(negativo), CF=0(sem borrow em signed).',
-      'NEG EAX = SUB 0,EAX = complemento de 2. NEG(-37) = 0x25 = 37.',
-      'MOV EAX,200 / MOV EBX,237 / SUB EAX,EBX / JNS .pos / NEG EAX / .pos: MOV [abs_diff],EAX.',
-      'Bit31 de 200: 0. Bit31 de NOT(237): 1. Cin (carry): depende dos bits inferiores. Carry-out bit31=0→CF=0 confirmado.',
-      'XOR RCX,RCX / loop: MOV EAX,[RSI+RCX*4] / SUB EAX,[RDI+RCX*4] / JNS .pos / NEG EAX / .pos: MOV [RDX+RCX*4],EAX / INC RCX / CMP RCX,8 / JL loop.',
-    ],
+    'MjAwPTB4QzgsIDIzNz0weEVELiBOT1QoMjM3KSsxPTB4RkZGRkZGMTMgKC0yMzcpLiAyMDArKC0yMzcpPTB4RkZGRkZGREI9LTM3LiBTRj0xKG5lZ2F0aXZvKSwgQ0Y9MChzZW0gYm9ycm93IGVtIHNpZ25lZCku',
+    'TkVHIEVBWCA9IFNVQiAwLEVBWCA9IGNvbXBsZW1lbnRvIGRlIDIuIE5FRygtMzcpID0gMHgyNSA9IDM3Lg==',
+    'TU9WIEVBWCwyMDAgLyBNT1YgRUJYLDIzNyAvIFNVQiBFQVgsRUJYIC8gSk5TIC5wb3MgLyBORUcgRUFYIC8gLnBvczogTU9WIFthYnNfZGlmZl0sRUFYLg==',
+    'Qml0MzEgZGUgMjAwOiAwLiBCaXQzMSBkZSBOT1QoMjM3KTogMS4gQ2luIChjYXJyeSk6IGRlcGVuZGUgZG9zIGJpdHMgaW5mZXJpb3Jlcy4gQ2Fycnktb3V0IGJpdDMxPTDihpJDRj0wIGNvbmZpcm1hZG8u',
+    'WE9SIFJDWCxSQ1ggLyBsb29wOiBNT1YgRUFYLFtSU0krUkNYKjRdIC8gU1VCIEVBWCxbUkRJK1JDWCo0XSAvIEpOUyAucG9zIC8gTkVHIEVBWCAvIC5wb3M6IE1PViBbUkRYK1JDWCo0XSxFQVggLyBJTkMgUkNYIC8gQ01QIFJDWCw4IC8gSkwgbG9vcC4='
+  ],
   },
 
   // ── Q19 ──────────────────────────────────────────────────────
@@ -531,12 +531,12 @@ export const QUESTOES_LAB1 = [
       'ARRAY: palette[4] = {0xFF8040C0, 0x80FF0000, 0xFF00FF00, 0x7F0000FF}. Escreva Assembly RISC-V que inverte os canais R e B de cada cor (swap R↔B mantendo A e G).',
     ],
     gabarito: [
-      '0xFF8040C0 = 1111 1111 1000 0000 0100 0000 1100 0000. A=0xFF=255, R=0x80=128, G=0x40=64, B=0xC0=192.',
-      'Alpha: SRLI t0,a0,24 / ANDI t0,t0,0xFF. R: SRLI t1,a0,16 / ANDI t1,t1,0xFF. G: SRLI t2,a0,8 / ANDI t2,t2,0xFF. B: ANDI t3,a0,0xFF.',
-      'LW a0, cor / SRLI t0,a0,24 / ANDI t0,t0,255 / SRLI t1,a0,16 / ANDI t1,t1,255 / SRLI t2,a0,8 / ANDI t2,t2,255 / ANDI t3,a0,255.',
-      'SLLI t1_s,t1,16 / SLLI t2_s,t2,8 / SLLI t0_s,t0,24 / OR res,t0_s,t1_s / OR res,res,t2_s / OR res,res,t3.',
-      'Loop: LW t0,0(a0) / ANDI t1,t0,0xFF (B) / SRLI t2,t0,16 / ANDI t2,t2,0xFF (R) / SLLI t1s,t1,16 / OR t0,t0,t1s / AND t0,t0,0xFF00FFFF_mask / SLLI t2s,t2,0 / OR t0,t0,t2s / SW t0,0(a0) / ADDI a0,a0,4.',
-    ],
+    'MHhGRjgwNDBDMCA9IDExMTEgMTExMSAxMDAwIDAwMDAgMDEwMCAwMDAwIDExMDAgMDAwMC4gQT0weEZGPTI1NSwgUj0weDgwPTEyOCwgRz0weDQwPTY0LCBCPTB4QzA9MTkyLg==',
+    'QWxwaGE6IFNSTEkgdDAsYTAsMjQgLyBBTkRJIHQwLHQwLDB4RkYuIFI6IFNSTEkgdDEsYTAsMTYgLyBBTkRJIHQxLHQxLDB4RkYuIEc6IFNSTEkgdDIsYTAsOCAvIEFOREkgdDIsdDIsMHhGRi4gQjogQU5ESSB0MyxhMCwweEZGLg==',
+    'TFcgYTAsIGNvciAvIFNSTEkgdDAsYTAsMjQgLyBBTkRJIHQwLHQwLDI1NSAvIFNSTEkgdDEsYTAsMTYgLyBBTkRJIHQxLHQxLDI1NSAvIFNSTEkgdDIsYTAsOCAvIEFOREkgdDIsdDIsMjU1IC8gQU5ESSB0MyxhMCwyNTUu',
+    'U0xMSSB0MV9zLHQxLDE2IC8gU0xMSSB0Ml9zLHQyLDggLyBTTExJIHQwX3MsdDAsMjQgLyBPUiByZXMsdDBfcyx0MV9zIC8gT1IgcmVzLHJlcyx0Ml9zIC8gT1IgcmVzLHJlcyx0My4=',
+    'TG9vcDogTFcgdDAsMChhMCkgLyBBTkRJIHQxLHQwLDB4RkYgKEIpIC8gU1JMSSB0Mix0MCwxNiAvIEFOREkgdDIsdDIsMHhGRiAoUikgLyBTTExJIHQxcyx0MSwxNiAvIE9SIHQwLHQwLHQxcyAvIEFORCB0MCx0MCwweEZGMDBGRkZGX21hc2sgLyBTTExJIHQycyx0MiwwIC8gT1IgdDAsdDAsdDJzIC8gU1cgdDAsMChhMCkgLyBBRERJIGEwLGEwLDQu'
+  ],
   },
 
   // ── Q20 ──────────────────────────────────────────────────────
@@ -562,11 +562,11 @@ export const QUESTOES_LAB1 = [
       'Escreva o Assembly x86-64 completo do loop que processa todos os 8 samples: carrega com MOVSX, multiplica por 3 com IMUL, divide por 4 com SAR #2, e armazena de volta com MOV WORD PTR.',
     ],
     gabarito: [
-      '-32768=1000 0000 0000 0000 (só bit 15 = 1). 32767=0111 1111 1111 1111. Sim — extremos do signed short.',
-      '-32768×3=-98304. Não cabe em 16 bits (max=-32768). Cabe em 32 bits. Em 16 bits: OF=1(overflow signed).',
-      'MOVSX EAX, WORD PTR[RDI] / IMUL EAX, 3 / SAR EAX, 2 / MOV WORD PTR[RDI], AX.',
-      'SAR replica o bit de sinal: -4 SAR 1 = -2 (correto). SHR de -4 daria um número positivo enorme (incorreto para áudio).',
-      'XOR RCX,RCX / loop: MOVSX EAX,WORD PTR[RSI+RCX*2] / IMUL EAX,3 / SAR EAX,2 / MOV WORD PTR[RSI+RCX*2],AX / INC RCX / CMP RCX,8 / JL loop.',
-    ],
+    'LTMyNzY4PTEwMDAgMDAwMCAwMDAwIDAwMDAgKHPDsyBiaXQgMTUgPSAxKS4gMzI3Njc9MDExMSAxMTExIDExMTEgMTExMS4gU2ltIOKAlCBleHRyZW1vcyBkbyBzaWduZWQgc2hvcnQu',
+    'LTMyNzY4w5czPS05ODMwNC4gTsOjbyBjYWJlIGVtIDE2IGJpdHMgKG1heD0tMzI3NjgpLiBDYWJlIGVtIDMyIGJpdHMuIEVtIDE2IGJpdHM6IE9GPTEob3ZlcmZsb3cgc2lnbmVkKS4=',
+    'TU9WU1ggRUFYLCBXT1JEIFBUUltSREldIC8gSU1VTCBFQVgsIDMgLyBTQVIgRUFYLCAyIC8gTU9WIFdPUkQgUFRSW1JESV0sIEFYLg==',
+    'U0FSIHJlcGxpY2EgbyBiaXQgZGUgc2luYWw6IC00IFNBUiAxID0gLTIgKGNvcnJldG8pLiBTSFIgZGUgLTQgZGFyaWEgdW0gbsO6bWVybyBwb3NpdGl2byBlbm9ybWUgKGluY29ycmV0byBwYXJhIMOhdWRpbyku',
+    'WE9SIFJDWCxSQ1ggLyBsb29wOiBNT1ZTWCBFQVgsV09SRCBQVFJbUlNJK1JDWCoyXSAvIElNVUwgRUFYLDMgLyBTQVIgRUFYLDIgLyBNT1YgV09SRCBQVFJbUlNJK1JDWCoyXSxBWCAvIElOQyBSQ1ggLyBDTVAgUkNYLDggLyBKTCBsb29wLg=='
+  ],
   },
 ]
