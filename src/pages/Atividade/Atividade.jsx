@@ -1,6 +1,6 @@
 // src/pages/Atividade/Atividade.jsx
 // Atividade Avaliativa — Lab 1 e Lab 2
-// Acesso: número do grupo + número da questão + senha da aula
+// Acesso: número do grupo + senha da aula (questão determinada automaticamente)
 // Entrega: PDF via window.print()
 
 import { useState, useRef } from 'react'
@@ -18,23 +18,19 @@ const LABS = [
 ]
 
 // ── Validação da senha ────────────────────────────────────────────
-// Formato: grupo (1–20) + número da questão (1–20) + senha da aula
-// A combinação correta é: grupo + questão + senha
-// O aluno deve ter o grupo e a questão iguais para acessar
-function validarAcesso(grupo, questao, senha, senhaAula, questaoCorreta) {
+// Formato: grupo (1–20) + senha da aula
+// A questão é determinada automaticamente pelo número do grupo
+function validarAcesso(grupo, senha, senhaAula) {
   if (!senhaAula.trim()) return { ok: false, msg: 'Senha da aula não configurada.' }
   const gNum = parseInt(grupo)
-  const qNum = parseInt(questao)
   if (isNaN(gNum) || gNum < 1 || gNum > 20) return { ok: false, msg: 'Número do grupo inválido (1–20).' }
-  if (isNaN(qNum) || qNum < 1 || qNum > 20) return { ok: false, msg: 'Número da questão inválido (1–20).' }
-  if (qNum !== questaoCorreta)              return { ok: false, msg: `Questão ${qNum} não corresponde ao grupo ${gNum}. Verifique com o professor.` }
   if (senha.trim().toLowerCase() !== senhaAula.trim().toLowerCase())
     return { ok: false, msg: 'Senha incorreta. Solicite ao professor.' }
   return { ok: true }
 }
 
 // ── Componente de impressão ───────────────────────────────────────
-function BotaoImprimir({ grupo, questao, isa, integrantes }) {
+function BotaoImprimir({ grupo, isa, integrantes }) {
   function handlePrint() {
     const style = document.createElement('style')
     style.id = 'print-style'
@@ -86,15 +82,12 @@ function BotaoImprimir({ grupo, questao, isa, integrantes }) {
 // ── Formulário de acesso ──────────────────────────────────────────
 function FormularioAcesso({ labColor, onUnlock, senhaAula }) {
   const [grupo,  setGrupo]  = useState('')
-  const [questao,setQuestao]= useState('')
   const [senha,  setSenha]  = useState('')
   const [erro,   setErro]   = useState('')
 
   function tentar() {
-    const qCorreta = parseInt(grupo) // questão = número do grupo (simples 1:1)
-    // Se quiser mapeamento diferente, altere aqui
     const qSorteada = ((parseInt(grupo) - 1) % 20) + 1
-    const res = validarAcesso(grupo, questao, senha, senhaAula, qSorteada)
+    const res = validarAcesso(grupo, senha, senhaAula)
     if (res.ok) {
       onUnlock(parseInt(grupo), qSorteada, senha)
     } else {
@@ -146,17 +139,6 @@ function FormularioAcesso({ labColor, onUnlock, senhaAula }) {
           <div>
             <label className="text-xs font-mono font-bold mb-1.5 block"
                    style={{ color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-              Número da questão (informado pelo professor)
-            </label>
-            <input type="number" min={1} max={20}
-                   value={questao} onChange={e => { setQuestao(e.target.value); setErro('') }}
-                   placeholder="Ex: 3"
-                   style={inputStyle} />
-          </div>
-
-          <div>
-            <label className="text-xs font-mono font-bold mb-1.5 block"
-                   style={{ color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
               Senha da aula
             </label>
             <input type="password"
@@ -176,7 +158,7 @@ function FormularioAcesso({ labColor, onUnlock, senhaAula }) {
         )}
 
         <button onClick={tentar}
-                disabled={!grupo || !questao || !senha}
+                disabled={!grupo || !senha}
                 className="btn-primary justify-center disabled:opacity-40 disabled:cursor-not-allowed"
                 style={{ background: labColor }}>
           <Unlock size={14} />
@@ -184,7 +166,7 @@ function FormularioAcesso({ labColor, onUnlock, senhaAula }) {
         </button>
 
         <div className="text-xs text-center font-mono" style={{ color: 'var(--text-muted)' }}>
-          Cada grupo tem uma questão única.<br />
+          A questão é sorteada pelo sistema conforme o número do grupo.<br />
           Dúvidas? Consulte o professor.
         </div>
       </div>
@@ -371,7 +353,7 @@ export default function Atividade() {
             Atividade Avaliativa
           </h1>
           <p className="text-xs font-mono" style={{ color: 'var(--text-muted)' }}>
-            20 questões por laboratório · Acesso por grupo + questão + senha
+            20 questões por laboratório · Acesso por grupo + senha da aula
           </p>
         </div>
       </div>
